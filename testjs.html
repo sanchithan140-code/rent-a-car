@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" autocomplete="off">
+      
+        Name <input type="text" id="name" name="name"><br><br>
+        Nic No <input type="text" id="nicno" name="nicno"><br><br>
+        <input type="button" onclick="finddata();" value="Find"><br><br>
+        Nic Type <input type="text" id="nictype" name="nictype"><br><br>
+        Gender <input type="text" id="gender" name="gender"><br><br>
+        year Of Birth <input type="text" id="yob" name="yob"><br><br>
+        Month Of Birth <input type="text" id="mob" name="mob"><br><br>
+        Date Of Birth <input type="text" id="dob" name="dob"><br><br>
+        Basic Salary <input type="text" id="bassal" name="bassal"><br><br>
+        EPF <input type="text" id="epf" name="epf" placeholder="8% of Basic Salary"><br><br> 
+        ETF <input type="text" id="etf" name="etf" placeholder="12% of Basic Salary"><br><br> 
+        Allowance <input type="text" id="allo" name="allo"><br><br>
+        Gross Salary <input type="text" id="grsal" name="grsal" placeholder="Basicsalary + allowance"><br><br>
+        Deduction <input type="text" id="dedu" name="dedu" placeholder="epf+etf"><br><br>
+        Netsalary <input type="text" id="netsal" name="nelsal" placeholder="gross salary - deductiion"><br><br>
+       
+        
+
+    </form>
+
+
+    <script>
+      function finddata(){
+        let nic=document.getElementById("nicno").value;
+        let oldslice=nic.slice(0,2);
+        let oldslicefordob=nic.slice(2,5);
+
+        let newslice=nic.slice(0,4);
+          let newslicefordob=nic.slice(4,7);
+
+          
+        
+        if(nic.length==10){
+            document.getElementById("nictype").value="Old Nic";
+             document.getElementById("yob").value=19+oldslice;
+             if(oldslicefordob<=366){
+             document.getElementById("gender").value="Male";}
+             else if(oldslicefordob>=501 && oldslicefordob<=866){
+                  document.getElementById("gender").value="Female";
+                }
+                else{
+                     document.getElementById("gender").value="Invalid Nic"; 
+                }
+             }
+           
+        
+        else if(nic.length==12){
+            document.getElementById("nictype").value="New Nic";
+             document.getElementById("yob").value=newslice;
+             if(newslicefordob<=366){
+             document.getElementById("gender").value="Male";}
+             else if(newslicefordob>=501 && newslicefordob<=866){
+                  document.getElementById("gender").value="Female";
+                }
+                else{
+                     document.getElementById("gender").value="Invalid Nic"; 
+                }
+           
+        }
+        else{
+             alert("invalid Nic");
+        }
+      }
+            
+    </script>
+</body>
+
+</html>
